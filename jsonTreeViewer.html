@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    <title>Annyys,MsisInc(C)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/all-tailwind-classes-full-min.css">
+    <script>
+        
+        //全て読み込んだ後の実行
+        window.onload = function() {
+            //console.log('onload 1');
+        }
+        //Domを読み込んだ後の実行
+        document.addEventListener('DOMContentLoaded', function() {
+            //console.log('DOMContentLoaded');
+        });
+
+
+        //起動時にFileMaker Scriptを実行する場合
+        function FM_init(){
+            try{
+                //FileMaker.PerformScript ("<scriptName>","<arg>");
+            }catch(e){///デバック時は例外が実行
+                //console.log('FM_init:Error'+e)
+            }
+        }
+        
+        function fetchJson(json){
+            try{
+                const viewElement = document.getElementById('textarea');
+
+
+                console.log('fetchJson',json)
+                if (viewElement) {
+                    viewElement.value = fetchJson(json); // Clear existing content
+                }
+            }catch(e){///デバック時は例外が実行
+                console.log('EfetchJson'+e)
+            }
+        }
+        function fetchJson(json){
+            try{
+                const viewElement = document.getElementById('textarea');
+                
+                if (viewElement) {
+                    // JSON文字列を一度パースしてから再度文字列化することで
+                    // エスケープ文字を適切に処理
+                    const formattedJson = typeof json === 'string' 
+                        ? JSON.stringify(JSON.parse(json), null, 2)
+                        : JSON.stringify(json, null, 2);
+                    
+                    viewElement.value = formattedJson;
+                }
+            }catch(e){
+                console.log('EfetchJson:', e)
+            }
+        }
+    </script>
+    <!-- Tailwind CSS Intellisense のための設定 -->
+    <style type="text/tailwindcss">
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+        
+        @layer components {
+            /* カスタムクラスをここに定義できます */
+        }
+    </style>
+    <body>
+        <div class="overflow-y-hidden overflow-x-hidden h-screen bg-slate-400">
+            <textarea id="textarea" class="w-full h-full text-xs"></textarea>
+        </div>
+       
+    </body>
+
+</html>

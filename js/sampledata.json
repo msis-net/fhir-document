@@ -1,0 +1,1390 @@
+{
+  "fullUrl": "urn:uuid:CE4C9C68-1A4A-4648-BACD-0BACA6601596",
+  "resource": {
+    "entry": [
+      {
+        "fullUrl": "urn:uuid:4C499FD7-AF19-724C-90F3-98ADA090CFC7",
+        "resource": {
+          "author": [
+            {
+              "display": "診療情報提供書作成者Practitioner",
+              "reference": "urn:uuid:6C9C9201-6C43-8F4C-9823-21849EFB805B",
+              "type": "Practitioner"
+            },
+            {
+              "display": "診療情報提供書作成機関Organization",
+              "reference": "urn:uuid:7BBAB0D1-9DA9-3943-9AD6-587EA2D8FAF8",
+              "type": "Organization"
+            }
+          ],
+          "category": {
+            "coding": [
+              {
+                "code": "OUTPATIENT",
+                "display": "外来文書",
+                "system": "http://jpfhir.jp/fhir/Common/CodeSystem/doc-subtypecodes"
+              }
+            ]
+          },
+          "custodian": {
+            "display": "診療情報提供書作成機関Organization",
+            "reference": "urn:uuid:7BBAB0D1-9DA9-3943-9AD6-587EA2D8FAF8",
+            "type": "Organization"
+          },
+          "date": "2024-11-04 09:17:07",
+          "encounter": {
+            "display": "受付情報Encounter",
+            "reference": "urn:uuid:D075F84B-57DD-BA40-B657-FF4131BFBF09",
+            "type": "Encounter"
+          },
+          "event": {
+            "code": [
+              {
+                "text": "診療情報提供書発行"
+              }
+            ],
+            "period": {
+              "start": "2024-11-04"
+            }
+          },
+          "extension": [
+            {
+              "system": "http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber",
+              "valueString": "1.0"
+            }
+          ],
+          "id": "4C499FD7-AF19-724C-90F3-98ADA090CFC7",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "20241104 091707_9"
+            }
+          ],
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:17:07",
+            "profile": [
+              "http://jpfhir.jp/fhir/ePCS/StructureDefinition/JP_Composition_eReferral|1"
+            ]
+          },
+          "resourceType": "Composition",
+          "section": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "920",
+                    "display ": "紹介元情報セクション",
+                    "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                  }
+                ]
+              },
+              "entry": [
+                {
+                  "display": "紹介元医師",
+                  "reference": "urn:uuid:6C9C9201-6C43-8F4C-9823-21849EFB805B",
+                  "type": "Practitioner"
+                },
+                {
+                  "display": "紹介元医療機関",
+                  "reference": "urn:uuid:7BBAB0D1-9DA9-3943-9AD6-587EA2D8FAF8",
+                  "type": "Organization"
+                }
+              ],
+              "text": {
+                "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\">ＡＢＣ病院</div>",
+                "status": "additional"
+              },
+              "title": "紹介元情報"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "910",
+                    "display ": "紹介先情報セクション",
+                    "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                  }
+                ]
+              },
+              "entry": [
+                {
+                  "display": "紹介先医師",
+                  "reference": "urn:uuid:BFD8D526-3CAD-4B3F-A0E9-E41E1CCBE90B",
+                  "type": "Practitioner"
+                },
+                {
+                  "display": "紹介先医療機関",
+                  "reference": "urn:uuid:F32B5035-5A46-E441-AD19-7B85D580B471",
+                  "type": "Organization"
+                }
+              ],
+              "text": {
+                "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\">東京大学医学部附属病院</div>",
+                "status": "additional"
+              },
+              "title": "紹介先情報"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "300",
+                    "display ": "構造情報セクション",
+                    "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                  }
+                ]
+              },
+              "section": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "950",
+                        "display ": "紹介目的セクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "紹介目的",
+                      "reference": "urn:uuid:D075F84B-57DD-BA40-B657-FF4131BFBF09",
+                      "type": "Encounter"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\"><div>腹痛精査お願い致します。</div><div>２行目コメント</div><div>3行目コメント</div><div>４行目コメント</div>",
+                    "status": "additional"
+                  },
+                  "title": "紹介目的"
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "340",
+                        "display ": "傷病名・主訴セクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "傷病名・主訴",
+                      "reference": "urn:uuid:88EE9219-D5D8-0347-BBA2-4EF9FB33620D",
+                      "type": "Condition"
+                    },
+                    {
+                      "display": "傷病名・主訴",
+                      "reference": "urn:uuid:0CCB8FDB-F3FE-6243-B4B8-611DB82D327C",
+                      "type": "Condition"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\"><div>高血圧症(2022-11-28)</div><div>腹痛(2022-11-29)</div>",
+                    "status": "additional"
+                  },
+                  "title": "傷病名・主訴"
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "370",
+                        "display ": "既往歴セクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "既往歴",
+                      "reference": "urn:uuid:D1300EBF-D4ED-0A40-896B-BC5A5020573C",
+                      "type": "Condition"
+                    },
+                    {
+                      "display": "既往歴",
+                      "reference": "urn:uuid:538BC4FF-F31A-194C-834D-2C2AB53247EE",
+                      "type": "Condition"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\"><div>高血圧症：20XX年に診断され、降圧薬（例：アンジオテンシンII受容体拮抗薬）で治療中。血圧コントロール良好。</div><div>糖尿病（2型）：20XX年に発症し、現在は経口血糖降下薬（例：メトホルミン）にて治療中。HbA1cは6.5%で管理良好。</div>",
+                    "status": "additional"
+                  },
+                  "title": "既往歴"
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "510",
+                        "display ": "アレルギーセクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "アレルギー",
+                      "reference": "urn:uuid:C68CBB09-87EF-414B-B658-5C850A696549",
+                      "type": "AllergyIntolerance"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\">[薬品]ペニシリンアレルギー</div>",
+                    "status": "additional"
+                  },
+                  "title": "アレルギー"
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "550",
+                        "display ": "家族歴セクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "家族歴",
+                      "reference": "urn:uuid:C49BF018-41F2-D240-A16C-80E886288958",
+                      "type": "FamilyMemberHistory"
+                    },
+                    {
+                      "display": "家族歴",
+                      "reference": "urn:uuid:9DDA5B13-40C1-6141-A637-33DD0F1217DC",
+                      "type": "FamilyMemberHistory"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\"><div>父：高血圧症：60歳頃に高血圧と診断され、降圧薬を服用中。特に脳卒中や心疾患の既往はない。</div><div>母：糖尿病（2型）：50歳代で糖尿病を発症し、経口血糖降下薬で治療中。合併症として網膜症がみられる。</div>",
+                    "status": "additional"
+                  },
+                  "title": "家族歴"
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "520",
+                        "display ": "感染症セクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "感染症",
+                      "reference": "urn:uuid:D48C66B0-289B-874C-AAFE-20CC1154A770",
+                      "type": "Observation"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\">B型肝炎キャリア：20XX年にB型肝炎ウイルス感染が確認され、現在もキャリア状態。定期的に肝機能検査を実施中。</div>",
+                    "status": "additional"
+                  },
+                  "title": "感染症"
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "610",
+                        "display ": "身体所見セクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "身体所見",
+                      "reference": "urn:uuid:CC046B74-AB95-BA4C-9DF4-7C8A5DB289CF",
+                      "type": "Observation"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\">血液検査：HbA1c：6.8%、LDLコレステロール：120 mg/dL、AST：25 IU/L、ALT：30 IU/L。全体的に正常範囲内。</div>",
+                    "status": "additional"
+                  },
+                  "title": "身体所見"
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "510",
+                        "display ": "アレルギーセクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "アレルギー",
+                      "reference": "urn:uuid:8A861E97-EEDB-1446-AB39-E9845AA0FDD6",
+                      "type": "AllergyIntolerance"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\">アスピリン禁忌：以前アスピリン服用時に消化性潰瘍を発症したため、NSAIDs系薬剤は使用を避ける。</div>",
+                    "status": "additional"
+                  },
+                  "title": "アレルギー"
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "code": "430",
+                        "display ": "現在の処方・現投薬情報セクション",
+                        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/document-section"
+                      }
+                    ]
+                  },
+                  "entry": [
+                    {
+                      "display": "現在の処方・現投薬情報",
+                      "reference": "urn:uuid:94011125-ACE2-4015-963C-6A3AE7FD0A6E",
+                      "type": "Bundle"
+                    },
+                    {
+                      "display": "現在の処方・現投薬情報",
+                      "reference": "urn:uuid:BE8FEF2C-8AFA-49DF-B012-FC5AC4554505",
+                      "type": "Bundle"
+                    }
+                  ],
+                  "text": {
+                    "div": "<div  xmlns=\"http://www.w3.org/1999/xhtml\"><div>ガスモチン錠５ｍｇ x 1 錠</div><div>カロナール錠５００　５００ｍｇ x 1 錠</div><div>１日３回毎食後 5 日分</div><div>ラックビー微粒Ｎ　１％ x 3 ｇ</div><div>１日３回毎食後 5 日分</div>",
+                    "status": "additional"
+                  },
+                  "title": "現在の処方・現投薬情報"
+                }
+              ],
+              "title": "構造情報"
+            }
+          ],
+          "status": "final",
+          "subject": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "title": "診療情報提供書",
+          "type": {
+            "coding": [
+              {
+                "code": "57133-1",
+                "display": "診療情報提供書",
+                "system": "http://jpfhir.jp/fhir/Common/CodeSystem/doc-typecodes"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+        "resource": {
+          "address": [
+            {
+              "postalCode": "1580083",
+              "text": "東京都世田谷区奥沢２"
+            }
+          ],
+          "birthDate": "2020-02-28",
+          "gender": "male",
+          "id": "0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+          "identifier": [
+            {
+              "system": "urn:oid:1.2.392.100495.20.3.51.11311234567",
+              "value": "2"
+            }
+          ],
+          "language": "ja",
+          "name": [
+            {
+              "extention": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                  "value": "IDE"
+                }
+              ],
+              "family": "北海道",
+              "given": [
+                "一郎"
+              ],
+              "text": "北海道　一郎",
+              "use": "usual"
+            },
+            {
+              "extention": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                  "value": "SYL"
+                }
+              ],
+              "family": "ホッカイド",
+              "given": [
+                "ウイチロウ"
+              ],
+              "text": "ホッカイド　ウイチロウ",
+              "use": "usual"
+            }
+          ],
+          "resourceType": "Patient",
+          "telecom": [
+            {
+              "system": "phone",
+              "use": "home",
+              "value": "03-5752-0616"
+            },
+            {
+              "system": "email",
+              "use": "home",
+              "value": "official@msis-net.com"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:7BBAB0D1-9DA9-3943-9AD6-587EA2D8FAF8",
+        "resource": {
+          "MedicalOrganizationID": "0116930",
+          "MedicationFeeScoreType": 1,
+          "PrefectureNo": 7,
+          "address": [
+            {
+              "postalCode": "1580083",
+              "text": "東京都世田谷区奥沢６−２７−２"
+            }
+          ],
+          "extension": [
+            {
+              "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_PrefectureNo",
+              "valueCoding": {
+                "system": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/PrefectureNo-2digits",
+                "value": "07"
+              }
+            },
+            {
+              "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_InsuranceOrganizationCategory",
+              "valueCoding": {
+                "system": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/MedicationFeeScoreType",
+                "value": "1"
+              }
+            },
+            {
+              "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_InsuranceOrganizationNo",
+              "valueIdentifier": {
+                "system": "http://jpfhir.jp/fhir/core/mhlw/IdSystem/MedicalOrganizationID",
+                "value": "0116930"
+              }
+            },
+            {
+              "url": "http://jpfhir.jp/fhir/eCS/Extension/StructureDefinition/JP_eCS_Department",
+              "valueCodeableConcept": {
+                "concept": [
+                  {
+                    "code": "018",
+                    "display": "一般内科",
+                    "system": "http://jami.jp/SS-MIX2/CodeSystem/ClinicalDepartment"
+                  }
+                ]
+              }
+            }
+          ],
+          "id": "7BBAB0D1-9DA9-3943-9AD6-587EA2D8FAF8",
+          "identifier": [
+            {
+              "system": "https://jpfhir.jp/fhir/core/IdSystem/insurance-medical-institution-no",
+              "value": "1311234567"
+            }
+          ],
+          "language": "ja",
+          "name": "ＡＢＣ病院",
+          "resourceType": "Organization",
+          "telecom": [
+            {
+              "system": "phone",
+              "value": "03-5752-0616"
+            },
+            {
+              "system": "phone",
+              "value": "050-3730-6680"
+            }
+          ],
+          "type": [
+            {
+              "code": "prov",
+              "system": "http://terminology.hl7.org/CodeSystem/organization-type"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:6C9C9201-6C43-8F4C-9823-21849EFB805B",
+        "resource": {
+          "id": "6C9C9201-6C43-8F4C-9823-21849EFB805B",
+          "identifier": [
+            {
+              "system": "urn:oid:1.2.392.100495.20.3.51.11311234567",
+              "value": "10001"
+            }
+          ],
+          "language": "ja",
+          "name": [
+            {
+              "extention": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                  "value": "IDE"
+                }
+              ],
+              "family": "徳川",
+              "given": [
+                "家康"
+              ],
+              "text": "徳川　家康",
+              "use": "official"
+            },
+            {
+              "extention": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                  "value": "SYL"
+                }
+              ],
+              "family": "イエヤス",
+              "given": [
+                "イエヤス"
+              ],
+              "text": "イエヤス　イエヤス",
+              "use": "official"
+            }
+          ],
+          "resourceType": "Practitioner1"
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:F32B5035-5A46-E441-AD19-7B85D580B471",
+        "resource": {
+          "MedicalOrganizationID": "8814790",
+          "MedicationFeeScoreType": 1,
+          "PrefectureNo": 13,
+          "extension": [
+            {
+              "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_PrefectureNo",
+              "valueCoding": {
+                "system": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/PrefectureNo-2digits",
+                "value": "13"
+              }
+            },
+            {
+              "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_InsuranceOrganizationCategory",
+              "valueCoding": {
+                "system": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/MedicationFeeScoreType",
+                "value": "1"
+              }
+            },
+            {
+              "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_InsuranceOrganizationNo",
+              "valueIdentifier": {
+                "system": "http://jpfhir.jp/fhir/core/mhlw/IdSystem/MedicalOrganizationID",
+                "value": "8814790"
+              }
+            },
+            {
+              "url": "http://jpfhir.jp/fhir/eCS/Extension/StructureDefinition/JP_eCS_Department",
+              "valueCodeableConcept": {
+                "concept": [
+                  {
+                    "code": "018",
+                    "display": "一般内科",
+                    "system": "http://jami.jp/SS-MIX2/CodeSystem/ClinicalDepartment"
+                  }
+                ]
+              }
+            }
+          ],
+          "id": "F32B5035-5A46-E441-AD19-7B85D580B471",
+          "identifier": [
+            {
+              "system": "https://jpfhir.jp/fhir/core/IdSystem/insurance-medical-institution-no",
+              "value": "1318814790"
+            }
+          ],
+          "language": "ja",
+          "name": "東京大学医学部附属病院",
+          "resourceType": "Organization",
+          "type": [
+            {
+              "code": "prov",
+              "system": "http://terminology.hl7.org/CodeSystem/organization-type"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:BFD8D526-3CAD-4B3F-A0E9-E41E1CCBE90B",
+        "resource": {
+          "id": "BFD8D526-3CAD-4B3F-A0E9-E41E1CCBE90B",
+          "language": "ja",
+          "name": [
+            {
+              "extention": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                  "value": "IDE"
+                }
+              ],
+              "family": "埼玉",
+              "given": [
+                "天才外科"
+              ],
+              "text": "埼玉　天才外科"
+            },
+            {}
+          ],
+          "resourceType": "Practitioner1"
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:88EE9219-D5D8-0347-BBA2-4EF9FB33620D",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "8833421",
+                "display ": "高血圧症",
+                "system": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/masterB-disease"
+              }
+            ],
+            "text": "高血圧症"
+          },
+          "id": "88EE9219-D5D8-0347-BBA2-4EF9FB33620D",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "88EE9219-D5D8-0347-BBA2-4EF9FB33620D"
+            }
+          ],
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:18:06",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Encounter_eCS"
+            ]
+          },
+          "onsetDateTime": "2022-11-28",
+          "resourceType": "Condition",
+          "subject": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:0CCB8FDB-F3FE-6243-B4B8-611DB82D327C",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "ZZZ1097",
+                "display ": "腹痛",
+                "system": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/masterB-disease"
+              }
+            ],
+            "text": "腹痛"
+          },
+          "id": "0CCB8FDB-F3FE-6243-B4B8-611DB82D327C",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "0CCB8FDB-F3FE-6243-B4B8-611DB82D327C"
+            }
+          ],
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:18:08",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Encounter_eCS"
+            ]
+          },
+          "onsetDateTime": "2022-11-29",
+          "resourceType": "Condition",
+          "subject": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:C68CBB09-87EF-414B-B658-5C850A696549",
+        "resource": {
+          "category": [
+            "medication"
+          ],
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "display": "継続中",
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "000000000",
+                "display ": "ペニシリンアレルギー",
+                "system": "http://jpfhir.jp/fhir/core/CodeSystem/YCM/JP_JfagyMedicationAllergen_CS"
+              }
+            ]
+          },
+          "id": "C68CBB09-87EF-414B-B658-5C850A696549",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": ""
+            }
+          ],
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:17:57",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS|1"
+            ]
+          },
+          "patient": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "resourceType": "AllergyIntolerance",
+          "type": "allergy",
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "display": "確認済み",
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:D1300EBF-D4ED-0A40-896B-BC5A5020573C",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "display": "継続中",
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "problem-list-item",
+                "display ": "problem-list-item",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category"
+              }
+            ],
+            "text": {}
+          },
+          "id": "D1300EBF-D4ED-0A40-896B-BC5A5020573C",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "D1300EBF-D4ED-0A40-896B-BC5A5020573C"
+            }
+          ],
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:17:24",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS|1"
+            ]
+          },
+          "note": {
+            "text": "高血圧症：20XX年に診断され、降圧薬（例：アンジオテンシンII受容体拮抗薬）で治療中。血圧コントロール良好。"
+          },
+          "onsetDateTime": "2024-10-23",
+          "resourceType": "Condition",
+          "subject": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "display": "確認済み",
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:538BC4FF-F31A-194C-834D-2C2AB53247EE",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "display": "継続中",
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "problem-list-item",
+                "display ": "problem-list-item",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category"
+              }
+            ],
+            "text": {}
+          },
+          "id": "538BC4FF-F31A-194C-834D-2C2AB53247EE",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "538BC4FF-F31A-194C-834D-2C2AB53247EE"
+            }
+          ],
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:17:25",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS|1"
+            ]
+          },
+          "note": {
+            "text": "糖尿病（2型）：20XX年に発症し、現在は経口血糖降下薬（例：メトホルミン）にて治療中。HbA1cは6.5%で管理良好。"
+          },
+          "onsetDateTime": "2024-10-23",
+          "resourceType": "Condition",
+          "subject": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "display": "確認済み",
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:C49BF018-41F2-D240-A16C-80E886288958",
+        "resource": {
+          "condition": {
+            "code": {
+              "text": "父：高血圧症：60歳頃に高血圧と診断され、降圧薬を服用中。特に脳卒中や心疾患の既往はない。"
+            }
+          },
+          "id": "C49BF018-41F2-D240-A16C-80E886288958",
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:17:45",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS|1"
+            ]
+          },
+          "patient": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "relationship": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category"
+              }
+            ],
+            "text": {}
+          },
+          "resourceType": "FamilyMemberHistory",
+          "status": "completed"
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:9DDA5B13-40C1-6141-A637-33DD0F1217DC",
+        "resource": {
+          "condition": {
+            "code": {
+              "text": "母：糖尿病（2型）：50歳代で糖尿病を発症し、経口血糖降下薬で治療中。合併症として網膜症がみられる。"
+            }
+          },
+          "id": "9DDA5B13-40C1-6141-A637-33DD0F1217DC",
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:17:47",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS|1"
+            ]
+          },
+          "patient": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "relationship": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category"
+              }
+            ],
+            "text": {}
+          },
+          "resourceType": "FamilyMemberHistory",
+          "status": "completed"
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:D48C66B0-289B-874C-AAFE-20CC1154A770",
+        "resource": {
+          "category": [
+            {
+              "code": "exam",
+              "system": "http://jpfhir.jp/fhir/core/CodeSystem/JP_SimpleObservationCategory_CS"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "code": "B型肝炎キャリア：20XX年にB型肝炎ウイルス感染が確認され、現在もキャリア状態。定期的に肝機能検査を実施中。",
+                "display ": "B型肝炎キャリア：20XX年にB型肝炎ウイルス感染が確認され、現在もキャリア状態。定期的に肝機能検査を実施中。",
+                "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_Uncoded_CS"
+              }
+            ],
+            "text": {}
+          },
+          "effectiveDateTime": "2024-10-23",
+          "id": "D48C66B0-289B-874C-AAFE-20CC1154A770",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "D48C66B0-289B-874C-AAFE-20CC1154A770"
+            }
+          ],
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:17:55",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS|1"
+            ]
+          },
+          "resourceType": "Observation1",
+          "status": "final",
+          "subject": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:CC046B74-AB95-BA4C-9DF4-7C8A5DB289CF",
+        "resource": {
+          "category": [
+            {
+              "code": "exam",
+              "system": "http://jpfhir.jp/fhir/core/CodeSystem/JP_SimpleObservationCategory_CS"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "code": "血液検査：HbA1c：6.8%、LDLコレステロール：120 mg/dL、AST：25 IU/L、ALT：30 IU/L。全体的に正常範囲内。",
+                "display ": "血液検査：HbA1c：6.8%、LDLコレステロール：120 mg/dL、AST：25 IU/L、ALT：30 IU/L。全体的に正常範囲内。",
+                "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_Uncoded_CS"
+              }
+            ],
+            "text": {}
+          },
+          "effectiveDateTime": "2024-03-12",
+          "id": "CC046B74-AB95-BA4C-9DF4-7C8A5DB289CF",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "CC046B74-AB95-BA4C-9DF4-7C8A5DB289CF"
+            }
+          ],
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:18:55",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS|1"
+            ]
+          },
+          "resourceType": "Observation1",
+          "status": "final",
+          "subject": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:8A861E97-EEDB-1446-AB39-E9845AA0FDD6",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "display": "継続中",
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "000000000",
+                "display ": "アスピリン禁忌",
+                "system": "http://jpfhir.jp/fhir/core/CodeSystem/JP_JfagyNonFoodNonMedicationAllergen_CSS"
+              }
+            ]
+          },
+          "id": "8A861E97-EEDB-1446-AB39-E9845AA0FDD6",
+          "language": "ja",
+          "meta": {
+            "lastUpdated": "2024-11-04 09:19:00",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS|1"
+            ]
+          },
+          "patient": {
+            "display": "患者リソースPatient",
+            "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+            "type": "Patient"
+          },
+          "reaction": [
+            {
+              "description": "以前アスピリン服用時に消化性潰瘍を発症したため、NSAIDs系薬剤は使用を避ける。"
+            }
+          ],
+          "resourceType": "AllergyIntolerance",
+          "type": "allergy",
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "display": "確認済み",
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:94011125-ACE2-4015-963C-6A3AE7FD0A6E",
+        "resource": {
+          "entry": [
+            {
+              "fullUrl": "urn:uuid4F265E0E-D343-4C94-B4D0-7E144C2AA738",
+              "resouce": {
+                "dispenseRequest": {
+                  "quantity ": {
+                    "unit": " 日分",
+                    "value": "内服薬剤"
+                  },
+                  "validityPeriod ": {
+                    "start": "2024-10-26"
+                  }
+                },
+                "dosageInstruction": {
+                  "doseAndRate": {
+                    "doseQuantity": {
+                      "unit": "錠",
+                      "value": "1"
+                    }
+                  },
+                  "text": "１日３回毎食後",
+                  "timing": {
+                    "code": {
+                      "text": "１日３回毎食後"
+                    }
+                  }
+                },
+                "id": "4F265E0E-D343-4C94-B4D0-7E144C2AA738",
+                "identifire": [
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/mhlw/IdSystem/Medication-RPGroupNumber",
+                    "value": "1"
+                  },
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/mhlw/IdSystem/MedicationAdministrationIndex",
+                    "value": "1"
+                  },
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+                    "value": "4F265E0E-D343-4C94-B4D0-7E144C2AA738"
+                  }
+                ],
+                "intent": "order",
+                "medicationCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "610421335",
+                      "display ": "ガスモチン錠５ｍｇ",
+                      "system": "http://jpfhir.jp/fhir/eCS/CodeSystem/MedicationCodeNocoded_CS"
+                    }
+                  ],
+                  "text": "ガスモチン錠５ｍｇ"
+                },
+                "meta": {
+                  "lastUpdated": "2024-11-01 10:13:46",
+                  "profile": [
+                    "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_MedicationRequest_eCS|1"
+                  ]
+                },
+                "resourceType": "MedicationRequest",
+                "status": "active",
+                "subject": {
+                  "display": "患者リソースPatient",
+                  "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+                  "type": "Patient"
+                }
+              }
+            },
+            {
+              "fullUrl": "urn:uuid923A6DCB-15EE-496D-9D30-3640B7071CDA",
+              "resouce": {
+                "dispenseRequest": {
+                  "quantity ": {
+                    "unit": " 日分",
+                    "value": "内服薬剤"
+                  },
+                  "validityPeriod ": {
+                    "start": "2024-10-26"
+                  }
+                },
+                "dosageInstruction": {
+                  "doseAndRate": {
+                    "doseQuantity": {
+                      "unit": "錠",
+                      "value": "1"
+                    }
+                  },
+                  "text": "１日３回毎食後",
+                  "timing": {
+                    "code": {
+                      "text": "１日３回毎食後"
+                    }
+                  }
+                },
+                "id": "923A6DCB-15EE-496D-9D30-3640B7071CDA",
+                "identifire": [
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/mhlw/IdSystem/Medication-RPGroupNumber",
+                    "value": "1"
+                  },
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/mhlw/IdSystem/MedicationAdministrationIndex",
+                    "value": "2"
+                  },
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+                    "value": "923A6DCB-15EE-496D-9D30-3640B7071CDA"
+                  }
+                ],
+                "intent": "order",
+                "medicationCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "622381201",
+                      "display ": "カロナール錠５００　５００ｍｇ",
+                      "system": "http://jpfhir.jp/fhir/eCS/CodeSystem/MedicationCodeNocoded_CS"
+                    }
+                  ],
+                  "text": "カロナール錠５００　５００ｍｇ"
+                },
+                "meta": {
+                  "lastUpdated": "2024-11-01 10:13:46",
+                  "profile": [
+                    "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_MedicationRequest_eCS|1"
+                  ]
+                },
+                "resourceType": "MedicationRequest",
+                "status": "active",
+                "subject": {
+                  "display": "患者リソースPatient",
+                  "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+                  "type": "Patient"
+                }
+              }
+            }
+          ],
+          "id": "94011125-ACE2-4015-963C-6A3AE7FD0A6E",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "20241104 092556_"
+            }
+          ],
+          "language": "ja",
+          "resourceType": "Bundle",
+          "timestamp": "2024-11-04 09:25:56",
+          "total": 2,
+          "type": "document"
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:BE8FEF2C-8AFA-49DF-B012-FC5AC4554505",
+        "resource": {
+          "entry": [
+            {
+              "fullUrl": "urn:uuidFEACAC86-60E7-4840-B14A-9D6F0B33EE65",
+              "resouce": {
+                "dispenseRequest": {
+                  "quantity ": {
+                    "unit": " 日分",
+                    "value": "内服薬剤"
+                  },
+                  "validityPeriod ": {
+                    "start": "2024-10-15"
+                  }
+                },
+                "dosageInstruction": {
+                  "doseAndRate": {
+                    "doseQuantity": {
+                      "unit": "ｇ",
+                      "value": "3"
+                    }
+                  },
+                  "text": "１日３回毎食後",
+                  "timing": {
+                    "code": {
+                      "text": "１日３回毎食後"
+                    }
+                  }
+                },
+                "id": "FEACAC86-60E7-4840-B14A-9D6F0B33EE65",
+                "identifire": [
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/mhlw/IdSystem/Medication-RPGroupNumber",
+                    "value": "3"
+                  },
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/mhlw/IdSystem/MedicationAdministrationIndex",
+                    "value": "1"
+                  },
+                  {
+                    "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+                    "value": "FEACAC86-60E7-4840-B14A-9D6F0B33EE65"
+                  }
+                ],
+                "intent": "order",
+                "medicationCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "620003183",
+                      "display ": "ラックビー微粒Ｎ　１％",
+                      "system": "http://jpfhir.jp/fhir/eCS/CodeSystem/MedicationCodeNocoded_CS"
+                    }
+                  ],
+                  "text": "ラックビー微粒Ｎ　１％"
+                },
+                "meta": {
+                  "lastUpdated": "2024-11-01 10:13:47",
+                  "profile": [
+                    "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_MedicationRequest_eCS|1"
+                  ]
+                },
+                "resourceType": "MedicationRequest",
+                "status": "active",
+                "subject": {
+                  "display": "患者リソースPatient",
+                  "reference": "urn:uuid:0B43D5B1-8DB8-F34A-9224-6655FC9C1F60",
+                  "type": "Patient"
+                }
+              }
+            }
+          ],
+          "id": "BE8FEF2C-8AFA-49DF-B012-FC5AC4554505",
+          "identifier": [
+            {
+              "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+              "value": "20241104 092554_"
+            }
+          ],
+          "language": "ja",
+          "resourceType": "Bundle",
+          "timestamp": "2024-11-04 09:25:54",
+          "total": 1,
+          "type": "document"
+        }
+      }
+    ],
+    "id": "CE4C9C68-1A4A-4648-BACD-0BACA6601596",
+    "identifier": [
+      {
+        "system": "http://jpfhir.jp/fhir/clins/bundle-identifier",
+        "value": "1311234567^2024^9DF405E8-8FFF-9F49-AD33-31F411752F8A"
+      }
+    ],
+    "language": "ja",
+    "meta": {
+      "lastUpdated": "2024-11-03 10:19:23",
+      "profile": [
+        "http://jpfhir.jp/fhir/ePCS/StructureDefinition/JP_Composition_eReferral|1"
+      ]
+    },
+    "resourceType": "Bundle",
+    "timestamp": "2024/10/23 10:54:51",
+    "type": "document"
+  }
+}

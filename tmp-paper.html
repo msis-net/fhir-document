@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    <title>Annyys,MsisInc(C)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="./css/all-tailwind-classes-full-min.css">
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/paper.css" />
+    <script src="./js/common.js"></script>
+    <script>
+        
+        //全て読み込んだ後の実行
+        window.onload = function() {
+            //console.log('onload 1'); 
+        }
+        //Domを読み込んだ後の実行
+        document.addEventListener('DOMContentLoaded', function() {
+            //console.log('DOMContentLoaded');
+            let url = new URL(window.location.href);
+            let params = url.searchParams;
+            getResources(params.get('id'));
+        });
+
+        function getResources(id){
+            const url=`https://fms.annyys.net/fmi/odata/v4/FHIR_Document/FHIR_Document('${id}')/resource/$value`
+            var headers = new Headers();
+            headers.set("Authorization", "Basic " + btoa("odata" + ":" + "odata@pass"));
+            headers.set("Content-Type", "application/json");
+
+            fetch(url, {
+                headers,
+                method: "GET",
+                mode: "no-cors"
+            }).then(response => {
+                return response.json();  
+            }).then(data => {
+                // dataを処理
+                renderingDoc(data)
+            }).catch(error => {
+                console.error(error);
+            });;
+        }
+        
+        let Enrty;
+        
+        function getResource(id){//Enrty内検索
+            return Enrty.find(({ fullUrl }) => fullUrl === id );
+        }
+
+        function renderingDoc(data){
+            // Get the position of the .sheet element
+            const sheetElement = document.querySelector('.sheet');
+            const sheetPosition = sheetElement.getBoundingClientRect();
+
+            console.log('sheetBottom',`${sheetPosition.bottom}px`)
+            //console.log(JSON.stringify(data,null,2));
+            Enrty = data.resource.entry;
+            const Composition = Enrty[0].resource;
+            //console.log("Enrty",Enrty);
+            //console.log("ComCompositionpose",JSON.stringify(Composition,null,2));
+            //console.log("ComCompositionpose",Composition.title);
+            document.getElementById('date').innerText = toJapaneseEra( Composition.date );
+            document.getElementById('title').innerText = `[${Composition.title}]`;
+            
+            
+
+            //#1:Composision.section[0]
+            //紹介元医師
+            const Practitioner1 = getResource(Composition.section[0].entry[0].reference)
+            //console.log("Practitioner1",Practitioner1);
+            if(Practitioner1){
+                document.getElementById('Practitioner1').innerHTML = Practitioner1.resource.name[0].text
+            }
+            //紹介元医療機関
+            const Organization1 = getResource(Composition.section[0].entry[1].reference)
+            //console.log("Organization1",Organization1);
+            if(Organization1){
+                document.getElementById('Organization1').innerText =Organization1.resource.name;
+                document.getElementById('zip').innerText= Organization1.resource.address[0].postalCode;
+                document.getElementById('adrs').innerText = Organization1.resource.address[0].text;
+                document.getElementById('telecom').innerText = Organization1.resource.telecom[0].value;
+            }
+            //#2:Composision.section[1]
+            //紹介先医師
+            const Practitioner2 = getResource(Composition.section[1].entry[0].reference)
+            //console.log("Practitioner2_id",Practitioner2);
+            if(Practitioner2){
+                document.getElementById('Practitioner2').innerHTML = "担当医：" + Practitioner2.resource.name[0].text +'　先生'
+            }
+            //紹介先医療機関
+            const Organization2 = getResource(Composition.section[1].entry[1].reference)
+            //console.log("Organization2",Organization2);
+            if(Organization2){
+                document.getElementById('Organization2').innerText = "紹介先医療機関：" + Organization2.resource.name; 
+            }
+
+            //患者情報
+            const Patient = getResource(Composition.subject.reference);
+            //console.log("Patient",Patient);
+            if(Patient){
+                document.getElementById('patientName').innerText = Patient.resource.name[0].text;
+                document.getElementById('patientAge').innerText = getAge( new Date(Patient.resource.birthDate) , new Date(Composition.date) )+"歳";
+                document.getElementById('patientBirthDate').innerText = toJapaneseEra( Patient.resource.birthDate );
+                document.getElementById('patientZip').innerText= Patient.resource.address[0].postalCode;
+                document.getElementById('patientAdrs').innerText = Patient.resource.address[0].text;
+                document.getElementById('patientTelecom').innerText = Patient.resource.telecom[0].value;
+                //console.log("gender",Patient.resource.gender);
+                if(Patient.resource.gender==="male"){
+                    document.getElementById('patientSex').innerText = "男";
+                }else if(Patient.resource.gender==="female"){
+                    document.getElementById('patientSex').innerText = "女";
+                }else{
+                    document.getElementById('patientSex').innerText = "不明";
+                }
+                
+            }
+
+            //＃３構造情報：Composision.section[2]:上からラベル付きで挿入
+            const section = Composition.section[2].section;
+            //console.log("section",section);
+            Object.keys(section).forEach(function(key) {
+                
+                let obj = section[key];
+                let code = obj.code.coding[0].code;
+                let element = document.createElement('div');
+                let nLabel = document.createElement('div');
+                nLabel.classList.add('label');
+                nLabel.classList.add('mt-1');
+                nLabel.textContent = `【${obj.title}】`;
+                element.appendChild(nLabel)
+                //本文を追加
+                let nText = document.createElement('div');
+                nText.classList.add('strdata');
+                nText.innerHTML = obj.text.div;
+                element.appendChild(nText);
+                //950紹介目的だけ挿入先を分ける
+                if( code === "950"){
+                    document.getElementById('message').appendChild(element);
+                }else{
+                    // Get current height of info element and log it
+                    const infoHeight = document.getElementById('info').offsetHeight;
+                    console.log(`Current info height: ${infoHeight}px`,`【${obj.title}】`);
+                    // Get current bottom position of info element
+                    const infoRect = document.getElementById('info').getBoundingClientRect();
+                    console.log(`Info bottom position: ${infoRect.bottom}px`);
+                    // Get current height of element and log it
+                    const elementHeight = element.offsetHeight;
+                    console.log(`Element height: ${elementHeight}px`);
+                    document.getElementById('info').appendChild(element);
+                }
+            });
+        }
+
+
+    </script>
+    <style type="text/tailwindcss">
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+        
+        @layer components {
+            /* カスタムクラスをここに定義できます */
+        }
+        @page {
+            size: A4; /* A4タテ */
+        }
+        
+        body {
+            counter-reset: sheet; /* カウンタの初期化 */
+        }
+        .sheet {
+            page-break-after: always;
+        }
+        .sheet::after {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            counter-increment: sheet;
+            content: "ページ " counter(sheet);
+        }
+        
+    </style>
+    <body class="A4 text-sm">
+        <!-- Each sheet element should have the class "sheet" -->
+        <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
+        <section class="sheet p-12">
+          <!-- Write HTML just like a web page -->
+          <div class="flex">
+            <div class="flex-auto">(別紙様式11)</div>
+            <div id="title"></div>
+          </div>
+          <div id="Organization2" class="m-4"></div>
+
+          <div id="Practitioner2" class="m-4"></div>
+
+          <div class="text-right">
+            <div id="date"></div>
+          </div>
+          
+          <div class="flex w-full">
+            <div class="w-1/2 p-2">
+                <div class="rightdata text-right">
+                    <div>紹介元医療機関の所在地及び名称</div>
+                    <div>電話番号</div>
+                  </div>
+            </div>
+            <div class="w-1/2 p-2">
+                <div id="Organization1"></div>
+                <div id="zip"></div>
+                <div id="adrs"></div>
+                <div id="telecom"></div>
+
+                <div class="flex my-2">
+                    <div>医師氏名</div>
+                    <div id="Practitioner1" class="mx-2 flex-auto"></div>
+                    <div>印</div>
+                </div> 
+            </div>
+          </div>
+          
+          <div class="border border-black p-2 w-full">
+            <div class="flex">
+                <div>患者氏名</div>
+                <div id="patientName" class="mx-2"></div>
+                (<div id="patientSex" class="mx-2"></div>)
+            </div>
+            <div class="flex">
+                <div>患者住所</div>
+                <div id="patientZip" class="mx-2"></div>
+                <div id="patientAdrs" class="mx-2"></div>
+            </div>
+            <div class="flex">
+                <div>電話番号</div>
+                <div id="patientTelecom" class="mx-2"></div>
+            </div>
+            <div class="flex">
+                <div>生年月日</div>
+                <div id="patientBirthDate" class="mx-2"></div>
+                (<div id="patientAge" class="mx-2"></div>)
+            </div>
+          </div>
+          <div class="border border-black p-2 mt-2 w-full">
+            <div id="message" class=""></div>
+          </div>
+          <div id="info" class="p-2"></div>
+        </section>
+
+        <section class="sheet p-12">
+
+            あああ
+        </section>
+      </body>
+</html>
